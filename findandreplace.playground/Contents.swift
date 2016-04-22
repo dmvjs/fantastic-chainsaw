@@ -91,7 +91,6 @@ extension NotRegex {
 "this is a sample".chars("is")?.indexes // => [2,5]
 "this is a sample".chars(Array("is".characters))?.indexes // => [2,3,5,6,10]
 "nomatchexists".chars(" ")?.indexes // => nil
-"this is a sample".chars(" ")?.indexes
-"🍣sashimi!!!🍣".chars("🍣")?.replace("🍺") // => [0,11]
+"🍣sashimi!!!🍣".chars("🍣")?.replace("🍺") // => ["🍺sashimi!!!🍺"]
 
 
