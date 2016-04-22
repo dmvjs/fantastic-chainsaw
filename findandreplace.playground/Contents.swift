@@ -43,10 +43,6 @@ extension String {
         return ints.count > 0 ? ints : nil
     }
     
-    // helper utility
-    func indexOf(string: String) -> String.Index {
-        return rangeOfString(string, options: .LiteralSearch, range: nil, locale: nil)?.startIndex ?? startIndex
-    }
 }
 
 
