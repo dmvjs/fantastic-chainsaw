@@ -14,7 +14,7 @@ extension String {
             pointer += item.characters.count + string.characters.count
         }
         let arr = Array(ints[0..<ints.count - 1])
-        return arr.count > 0 ? NotRegex(indexes: arr, string: self) : nil
+        return arr.count > 0 ? NotRegex(indexes: arr, string: self, parts: array) : nil
     }
     
     // search for discrete characters individually
@@ -29,7 +29,7 @@ extension String {
                 }
             }
         }
-        return ints.count > 0 ? NotRegex(indexes: ints.flatMap {$0}.sort(), string: self) : nil
+        return ints.count > 0 ? NotRegex(indexes: ints.flatMap {$0}.sort(), string: self, parts: nil) : nil
     }
     
     // search for individual characters
@@ -40,7 +40,7 @@ extension String {
                 ints.append(index)
             }
         }
-        return ints.count > 0 ? NotRegex(indexes: ints, string: self) : nil
+        return ints.count > 0 ? NotRegex(indexes: ints, string: self, parts: nil) : nil
     }
     
 }
@@ -48,14 +48,19 @@ extension String {
 public struct NotRegex {
     let indexes: [Int]
     let string: String
+    let parts: [String]?
 }
 
 extension NotRegex {
-    //func replace (replaceWith: String) -> String {
+    
+    func replaceWith (replaceWith: String) -> String {
+        if let parts = self.parts {
+            return parts.joinWithSeparator(replaceWith)
+        }
+        return self.string
+    }
 
-    //func replace (replaceWith: [Character]) -> String {
-
-    func replace (replaceWith: Character) -> String {
+    func replaceWith (replaceWith: Character) -> String {
         var chars = Array(self.string.characters)
         for index in self.indexes {
             chars[index] = replaceWith
@@ -87,6 +92,6 @@ extension NotRegex {
 "this is a sample".chars("is")?.indexes // => [2,5]
 "this is a sample".chars(Array("is".characters))?.indexes // => [2,3,5,6,10]
 "nomatchexists".chars(" ")?.indexes // => nil
-"🍣sashimi!!!🍣".chars("🍣")?.replace("🍺") // => ["🍺sashimi!!!🍺"]
+"🍣sashimi!!!🍣".chars("🍣")?.replaceWith("🍺").chars("sashimi!!!")?.replaceWith("beer!!!!") // => ["🍺beer!!!!🍺"]
 
 
