@@ -18,10 +18,10 @@ extension String {
     }
     
     // search for discrete characters
-    func charsDiscrete (string: String) -> [Int]? {
+    func chars (characters: [Character]) -> [Int]? {
         var ints:[[Int]] = []
         var charsThusFar:[Character] = []
-        for char in string.characters {
+        for char in characters {
             if !charsThusFar.contains(char) {
                 charsThusFar.append(char)
                 if let charInts = chars(char) {
@@ -51,7 +51,7 @@ extension String {
 "🍣sashimi!!!🍣".chars("🍣")
 "this is a sample".chars(" ")
 "this is a sample".chars("is")
-"this is a sample".charsDiscrete("is")
+"this is a sample".chars(Array("is".characters))
 "nofuckingmatch".chars(" ")
 
 
