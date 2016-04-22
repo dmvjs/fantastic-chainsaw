@@ -1,10 +1,6 @@
 import Foundation
 
 // demo at the bottom ⬇️⬇️⬇️
-/**
- Extend String to have some easy-to-use regex functionality
- 
- */
 
 extension String {
     
