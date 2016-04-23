@@ -1,6 +1,12 @@
-import Foundation
+//
+//  String+NotRegex.swift
+//  NotRegex
+//
+//  Created by Kirk Elliott on 4/23/16.
+//  Copyright © 2016 dmvjs. All rights reserved.
+//
 
-// demo at the bottom ⬇️⬇️⬇️
+import Foundation
 
 extension String {
     
@@ -69,7 +75,7 @@ extension String {
     }
     
     /**
-    get an array of Character for a range string where:
+     get an array of Character for a range string where:
      1. there are always 2 characters in the rangeString (no separator)
      2. works even if entered incorrectly (first > last || first == last)
      */
@@ -98,56 +104,3 @@ extension String {
     }
     
 }
-
-public struct NotRegex {
-    let indexes: [Int]
-    let string: String
-    let parts: [String]?
-}
-
-extension NotRegex {
-    
-    func replaceWith (replaceWith: String) -> String {
-        if let parts = self.parts {
-            return parts.joinWithSeparator(replaceWith)
-        }
-        return self.string
-    }
-
-    func replaceWith (replaceWith: Character) -> String {
-        var chars = Array(self.string.characters)
-        for index in self.indexes {
-            chars[index] = replaceWith
-        }
-        return String(chars)
-    }
-    
-    func find (string: String) -> NotRegex? {
-        return self.string.find(string)
-    }
-    
-    func find (characters: [Character]) -> NotRegex? {
-        return self.string.find(characters)
-    }
-    
-    func find (character: Character) -> NotRegex? {
-        return self.string.find(character)
-    }
-}
-
-
-
-"f̤̬͕̳͇̰̗̿͑̏̇̕̕͟͝ą͚͓͇̥̂́̽̍̕͢ņ͙͉̣̪̞͙͎͌́̄͂͐̕͟t̸̻̭̝̣̳̯̙͍̥̿̍̐͂̀̈́̓̀̚͜͠ą̸̣̥̫̠̤̝̓̇͊̒̊̂̉͜͟s̸̛̳̮̪͍̗̈̄̐̈͂̏̈͐ț̵͓̤̯͇̩̩͖̀͆̽̕͘͝ǐ̸̡̨̨̫̖̒̆̑̑̅͐̚ć̸̬͈̫͚̮͂̈̀́̍̏͑̈́͘ͅ-̴̼̪͙̮̗̀̓͗͐͗́̄͘͢ç̶̠̦̝̝̼̻̈̔̑͊̑̾͘̕ḥ̶̡̢̜͚͉̘̖̥͙̏̏͒̈̃͑͊̚͞â̴̯̱̳̼̲̭̐̄͛͌͟͠͡͠ỉ̷̢͚̰͇̗̲͇̅͛̀̀̾͢ͅn͇̣͓͍̑̇̔̀̇̽͊̈͐͜͢͠s̡̛̜͖͔͉̬͂̑̈̐͂̓͢á̵̛̛̺̹̘̤͈̮͇̫̈́͐͐͋͘͟͠w̦̗͇̱̥͓̖͉̯̥̉̔̾̽̽͋̋͛̚".find("ç̶̠̦̝̝̼̻̈̔̑͊̑̾͘̕")?.indexes // => [10]
-
-
-
-"🍣sashimi!!!🍣".find("🍣")?.indexes // => [0,11]
-"this is a sample".find(" ")?.indexes // => [4,7,9]
-"this is a sample".find("is")?.indexes // => [2,5]
-"this is a sample".find(Array("is".characters))?.indexes // => [2,3,5,6,10]
-"nomatchexists".find(" ")?.indexes // => nil
-"🍣sashimi!!!🍣".find("🍣")?.replaceWith("🍺").find("sashimi!!!")?.replaceWith("beer!!!!") // => ["🍺beer!!!!🍺"]
-"this that".findWithRange("az") // => [0,1,2,3,5,6,7,8]
-"this that".findFirstWithRange("az") // => 0
-
-

@@ -10,6 +10,10 @@
 		4A8151CD1CCBF9F0003DACC1 /* NotRegex.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A8151CC1CCBF9F0003DACC1 /* NotRegex.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4A8151D41CCBF9F0003DACC1 /* NotRegex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A8151C91CCBF9EF003DACC1 /* NotRegex.framework */; };
 		4A8151D91CCBF9F0003DACC1 /* NotRegexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8151D81CCBF9F0003DACC1 /* NotRegexTests.swift */; };
+		4A8151E41CCBFA97003DACC1 /* NotRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8151E31CCBFA97003DACC1 /* NotRegex.swift */; };
+		4A8151E51CCBFA97003DACC1 /* NotRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8151E31CCBFA97003DACC1 /* NotRegex.swift */; };
+		4A8151E71CCBFAC6003DACC1 /* String+NotRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8151E61CCBFAC6003DACC1 /* String+NotRegex.swift */; };
+		4A8151E81CCBFAC6003DACC1 /* String+NotRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8151E61CCBFAC6003DACC1 /* String+NotRegex.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +33,8 @@
 		4A8151D31CCBF9F0003DACC1 /* NotRegexTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NotRegexTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A8151D81CCBF9F0003DACC1 /* NotRegexTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotRegexTests.swift; sourceTree = "<group>"; };
 		4A8151DA1CCBF9F0003DACC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4A8151E31CCBFA97003DACC1 /* NotRegex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotRegex.swift; sourceTree = "<group>"; };
+		4A8151E61CCBFAC6003DACC1 /* String+NotRegex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+NotRegex.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +78,8 @@
 			isa = PBXGroup;
 			children = (
 				4A8151CC1CCBF9F0003DACC1 /* NotRegex.h */,
+				4A8151E31CCBFA97003DACC1 /* NotRegex.swift */,
+				4A8151E61CCBFAC6003DACC1 /* String+NotRegex.swift */,
 				4A8151CE1CCBF9F0003DACC1 /* Info.plist */,
 			);
 			path = NotRegex;
@@ -194,6 +202,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A8151E71CCBFAC6003DACC1 /* String+NotRegex.swift in Sources */,
+				4A8151E41CCBFA97003DACC1 /* NotRegex.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,7 +211,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A8151E81CCBFAC6003DACC1 /* String+NotRegex.swift in Sources */,
 				4A8151D91CCBF9F0003DACC1 /* NotRegexTests.swift in Sources */,
+				4A8151E51CCBFA97003DACC1 /* NotRegex.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +322,7 @@
 		4A8151DE1CCBF9F0003DACC1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -320,12 +333,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.dmvjs.NotRegex;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		4A8151DF1CCBF9F0003DACC1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -378,6 +393,7 @@
 				4A8151DF1CCBF9F0003DACC1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4A8151E01CCBF9F0003DACC1 /* Build configuration list for PBXNativeTarget "NotRegexTests" */ = {
 			isa = XCConfigurationList;
@@ -386,6 +402,7 @@
 				4A8151E21CCBF9F0003DACC1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
